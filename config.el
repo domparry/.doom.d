@@ -145,7 +145,7 @@
       projectile-project-search-path '("~/Code/"))
 
 ;; So Long only for very long lines
-(setq so-long-threshold 2000)
+(setq so-long-threshold 5000)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
