@@ -91,6 +91,26 @@
       (flycheck-add-mode 'javascript-eslint 'web-mode)
       (flycheck-add-next-checker 'lsp-ui '(warning . javascript-eslint)))))
 
+
+(use-package prettier-js
+  :after js2-mode
+  :init
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  :config
+  (setq prettier-js-args '("--trailing-comma" "es5"
+                           "--singleQuote" "true")))
+
+
+(defun enable-minor-mode (my-pair)
+  "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
+  (if (buffer-file-name)
+      (if (string-match (car my-pair) buffer-file-name)
+          (funcall (cdr my-pair)))))
+  (add-hook 'web-mode-hook #'(lambda ()
+                               (enable-minor-mode
+                                '("\\.jsx?\\'" . prettier-js-mode))))
+
 (use-package! cider
   :after clojure-mode
   :config
@@ -145,7 +165,7 @@
       projectile-project-search-path '("~/Code/"))
 
 ;; So Long only for very long lines
-(setq so-long-threshold 5000)
+(setq so-long-threshold 2000)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
