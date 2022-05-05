@@ -47,4 +47,3 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 ;
 
-(package! prettier-js)

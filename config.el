@@ -92,15 +92,8 @@
       (flycheck-add-next-checker 'lsp-ui '(warning . javascript-eslint)))))
 
 
-(use-package prettier-js
-  :after js2-mode
-  :init
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode)
-  :config
-  (setq prettier-js-args '("--trailing-comma" "es5"
-                           "--singleQuote" "true")))
-
+(setq +format-on-save-enabled-modes
+      '(not clojure-mode))
 
 (defun enable-minor-mode (my-pair)
   "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
@@ -135,6 +128,7 @@
 (after! web-mode
   (remove-hook 'web-mode-hook #'+javascript-init-lsp-or-tide-maybe-h)
   (add-hook 'web-mode-local-vars-hook #'+javascript-init-lsp-or-tide-maybe-h))
+
 
 (after! smartparens
   (map! (:map smartparens-mode-map
