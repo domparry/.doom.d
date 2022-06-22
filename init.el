@@ -37,9 +37,9 @@
        ;; hl-todo                                 ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
-       modeline   ; snazzy, Atom-inspired modeline, plus API
-       nav-flash  ; blink the current line after jumping
-       neotree           ; a project drawer, like NERDTree for vim
+       modeline           ; snazzy, Atom-inspired modeline, plus API
+       nav-flash          ; blink the current line after jumping
+       neotree            ; a project drawer, like NERDTree for vim
        ;; ophints ; highlight the region an operation acts on
        (popup +defaults)  ; tame sudden yet inevitable temporary windows
        (ligatures +fira)  ; ligatures and symbols to make your code pretty again
@@ -48,7 +48,7 @@
        ;; ;;unicode           ; extended unicode support for various languages
        ;; ;; vc-gutter                                 ; vcs diff in the fringe
        ;; vi-tilde-fringe              ; fringe tildes to mark beyond EOB
-       window-select                    ; visually switch windows
+       window-select    ; visually switch windows
        workspaces       ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
 
@@ -68,7 +68,7 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       (dired +ranger +icons)                ; making dired pretty [functional]
+       (dired +ranger +icons)  ; making dired pretty [functional]
        electric                ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
        vc                         ; version-control and Emacs, sitting in a tree
@@ -105,6 +105,7 @@
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
+       tree-sitter
 
        :lang
        ;;agda              ; types of types of types of types...
@@ -131,7 +132,9 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       javascript                     ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript
+        +lsp
+	+tree-sitter)      ; all(hope(abandon(ye(who(enter(here))))))
        (json                          ; At least it ain't XML
         +json-mode
         +lsp)
