@@ -133,8 +133,7 @@
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        (javascript
-        +lsp
-	+tree-sitter)      ; all(hope(abandon(ye(who(enter(here))))))
+        +lsp)      ; all(hope(abandon(ye(who(enter(here))))))
        (json                          ; At least it ain't XML
         +json-mode
         +lsp)

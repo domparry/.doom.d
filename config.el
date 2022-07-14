@@ -92,9 +92,6 @@
       (flycheck-add-next-checker 'lsp-ui '(warning . javascript-eslint)))))
 
 
-(setq +format-on-save-enabled-modes
-      '(not clojure-mode))
-
 (defun enable-minor-mode (my-pair)
   "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
   (if (buffer-file-name)
@@ -179,5 +176,7 @@
 ;; they are implemented.
 
 (setq lsp-ui-sideline-show-code-actions nil)
+(setq +format-with-lsp nil)
+
 (setq-default enable-local-variables t)
 
